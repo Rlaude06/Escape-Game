@@ -24,8 +24,12 @@ def main () :
     
     def draw_background():
         WINDOW.blit(background, (0, 0))
-        
-    def get_fun(i)
+    
+    def draw_post_it
+    
+    def get_fun(i):
+        funs = [draw_post_it, draw_radio]
+        return funs[i]
     looping = True
   
     while looping :
@@ -41,7 +45,7 @@ def main () :
           
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if check_click(*event.pos):
-                    get_fun()
+                    get_fun(check_click(*event.pos))
         
         draw_background()
     
