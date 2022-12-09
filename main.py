@@ -11,7 +11,7 @@ def main () :
     fpsClock = pygame.time.Clock()
     
     
-    WINDOW_WIDTH, WINDOW_HEIGHT = 1920, 1080 #pygame.display.list_modes()[0]
+    WINDOW_WIDTH, WINDOW_HEIGHT = 1240, 720 #pygame.display.list_modes()[0]
     WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     pygame.display.set_caption('Escape Game!')
     
@@ -25,11 +25,18 @@ def main () :
     def draw_background():
         WINDOW.blit(background, (0, 0))
     
-    def draw_post_it
+    def draw_post_it():
+        return None
+
+    def open_menu():
+        exec(open("text.py").read())
+        return True
+
     
     def get_fun(i):
-        funs = [draw_post_it, draw_radio]
+        funs = [draw_post_it, open_menu]
         return funs[i]
+    
     looping = True
   
     while looping :
@@ -44,8 +51,9 @@ def main () :
                     sys.exit()
           
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if check_click(*event.pos):
-                    get_fun(check_click(*event.pos))
+                if check_click(*event.pos)!=False:
+                    print("-")
+                    print(get_fun(check_click(*event.pos))())
         
         draw_background()
     
